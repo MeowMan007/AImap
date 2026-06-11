@@ -19,118 +19,73 @@
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-display: 'Outfit', sans-serif;
 
-      /* Light Mode Variables */
-      --bg-app: #f8fafc;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f1f5f9;
-      --border: #e2e8f0;
-      --border-hover: #cbd5e1;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-tertiary: #94a3b8;
-      --bg-legend: #f1f5f9;
-      --bg-badge-alpha: 0.08;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-      --glass-bg: rgba(255, 255, 255, 0.8);
-      --glass-border: rgba(226, 232, 240, 0.8);
-      --accent: #4f46e5;
-      --accent-glow: rgba(79, 70, 229, 0.15);
+      /* MongoDB Dark Palette */
+      --bg-app: #0C1A24;         /* MongoDB Dark Forest Blue/Grey */
+      --bg-card: #112330;        /* Rich Charcoal Slate */
+      --bg-card-hover: #162C3D;  /* Slightly Lighter slate */
+      --border: #1E2F3D;         /* Crisp Grid Borders */
+      --border-hover: #2E4558;   /* Hover borders */
+      --text-primary: #FFFFFF;   /* Clear white text */
+      --text-secondary: #8FA0A3; /* MongoDB Muted Muted Grey/Blue */
+      --text-tertiary: #5B6F7C;  /* Deep muted slate */
+      --bg-legend: #112330;
+      --bg-badge-alpha: 0.12;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.15);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+      --glass-bg: rgba(17, 35, 48, 0.85);
+      --glass-border: rgba(30, 47, 61, 0.8);
+      --accent: #00ED64;         /* MongoDB Neon Green */
+      --accent-glow: rgba(0, 237, 100, 0.15);
 
       /* Phase Colors */
-      --c-p1: #6366f1;
-      /* Foundations - Indigo */
-      --c-p2: #0f766e;
-      /* Classical ML - Teal */
-      --c-p3: #0284c7;
-      /* Deep Learning - Sky */
-      --c-p4: #d97706;
-      /* LLM Eng - Amber */
-      --c-p5: #db2777;
-      /* Full Stack - Pink */
-      --c-p6: #ea580c;
-      /* Cloud/MLOps - Orange */
-      --c-p7: #059669;
-      /* Agents - Emerald */
+      --c-p1: #00ED64;
+      --c-p2: #00A650;
+      --c-p3: #00e4ff;
+      --c-p4: #ffd700;
+      --c-p5: #ff6b6b;
+      --c-p6: #a55eea;
+      --c-p7: #ff9f43;
 
-      /* Project Difficulty Colors - Light Mode */
-      --c-beginner: #2563eb;
-      --c-intermediate: #d97706;
-      --c-advanced: #dc2626;
+      /* Project Difficulty Colors */
+      --c-beginner: #00e4ff;
+      --c-intermediate: #ffd700;
+      --c-advanced: #ff6b6b;
     }
 
-    /* Dark Mode Variables */
-    html[data-theme="dark"] {
-      --bg-app: #030712;
-      /* Rich dark grey-black */
-      --bg-card: #0b0f19;
-      /* Deep navy-black */
-      --bg-card-hover: #161c2a;
-      --border: #1e293b;
-      /* Slate-800 */
-      --border-hover: #334155;
-      /* Slate-700 */
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
-      --text-tertiary: #475569;
-      --bg-legend: #0f172a;
-      --bg-badge-alpha: 0.15;
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-      --glass-bg: rgba(11, 15, 25, 0.75);
-      --glass-border: rgba(30, 41, 59, 0.6);
-      --accent: #818cf8;
-      /* Light Indigo */
-      --accent-glow: rgba(129, 140, 248, 0.25);
+    /* Keep theme variables constant to stay dark by default */
+    html[data-theme="light"],
+    html[data-theme="dark"],
+    :root:not([data-theme="light"]) {
+      --bg-app: #0C1A24;
+      --bg-card: #112330;
+      --bg-card-hover: #162C3D;
+      --border: #1E2F3D;
+      --border-hover: #2E4558;
+      --text-primary: #FFFFFF;
+      --text-secondary: #8FA0A3;
+      --text-tertiary: #5B6F7C;
+      --bg-legend: #112330;
+      --bg-badge-alpha: 0.12;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.15);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+      --glass-bg: rgba(17, 35, 48, 0.85);
+      --glass-border: rgba(30, 47, 61, 0.8);
+      --accent: #00ED64;
+      --accent-glow: rgba(0, 237, 100, 0.15);
 
-      --c-p1: #818cf8;
-      --c-p2: #14b8a6;
-      --c-p3: #38bdf8;
-      --c-p4: #fbbf24;
-      --c-p5: #f472b6;
-      --c-p6: #fb923c;
-      --c-p7: #34d399;
+      --c-p1: #00ED64;
+      --c-p2: #00A650;
+      --c-p3: #00e4ff;
+      --c-p4: #ffd700;
+      --c-p5: #ff6b6b;
+      --c-p6: #a55eea;
+      --c-p7: #ff9f43;
 
-      /* Project Difficulty Colors - Dark Mode */
-      --c-beginner: #60a5fa;
-      --c-intermediate: #fbbf24;
-      --c-advanced: #f87171;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg-app: #030712;
-        --bg-card: #0b0f19;
-        --bg-card-hover: #161c2a;
-        --border: #1e293b;
-        --border-hover: #334155;
-        --text-primary: #f8fafc;
-        --text-secondary: #94a3b8;
-        --text-tertiary: #475569;
-        --bg-legend: #0f172a;
-        --bg-badge-alpha: 0.15;
-        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-        --glass-bg: rgba(11, 15, 25, 0.75);
-        --glass-border: rgba(30, 41, 59, 0.6);
-        --accent: #818cf8;
-        --accent-glow: rgba(129, 140, 248, 0.25);
-        --c-p1: #818cf8;
-        --c-p2: #14b8a6;
-        --c-p3: #38bdf8;
-        --c-p4: #fbbf24;
-        --c-p5: #f472b6;
-        --c-p6: #fb923c;
-        --c-p7: #34d399;
-
-        /* Project Difficulty Colors - Media Query Dark */
-        --c-beginner: #60a5fa;
-        --c-intermediate: #fbbf24;
-        --c-advanced: #f87171;
-      }
+      --c-beginner: #00e4ff;
+      --c-intermediate: #ffd700;
+      --c-advanced: #ff6b6b;
     }
 
     * {
@@ -145,182 +100,418 @@
       background-color: var(--bg-app);
       color: var(--text-primary);
       line-height: 1.5;
-      transition: background-color 0.3s ease, color 0.3s ease;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
-    }
-
-    /* Core Wrapper */
-    .wrap {
-      padding: 2rem 1.5rem 4rem;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-
-    /* Header Panel */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 2rem;
-      gap: 1.5rem;
-    }
-
-    .header-left {
-      max-width: 850px;
-    }
-
-    .title-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 0.5rem;
-    }
-
-    .title {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 800;
-      line-height: 1.25;
-      background: linear-gradient(135deg, var(--c-p1) 0%, var(--c-p3) 40%, var(--c-p7) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .year-badge {
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: var(--accent-glow);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-    }
-
-    .subtitle {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* Action Buttons (Right) */
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .theme-toggle-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      width: 42px;
-      height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--text-primary);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .theme-toggle-btn:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .theme-toggle-btn i {
-      font-size: 1.25rem;
-    }
-
-    /* Progress Tracker Dashboard */
-    .progress-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(16px);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow-md);
-    }
-
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-    }
-
-    .progress-title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .progress-percentage {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
-    .progress-bar-bg {
-      background: var(--border);
-      height: 10px;
-      border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 1.5rem;
     }
 
-    .progress-bar-fill {
-      background: linear-gradient(90deg, var(--c-p1) 0%, var(--c-p3) 40%, var(--c-p7) 100%);
-      height: 100%;
-      width: 0%;
-      border-radius: 6px;
-      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Dashboard Layout */
+    .dashboard-container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-
-    .stat-item {
+    /* Left Sidebar */
+    .sidebar {
+      width: 320px;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
+      flex-shrink: 0;
+      overflow-y: auto;
+      padding: 1.5rem;
+      gap: 1.5rem;
     }
 
-    .stat-label {
+    /* Sidebar Brand */
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-brand i {
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+    .sidebar-brand .brand-text h2 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+    .sidebar-brand .brand-text span {
       font-size: 0.7rem;
       color: var(--text-secondary);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.35rem;
-      font-weight: 600;
+      letter-spacing: 1px;
     }
 
-    .stat-value {
+    /* User Profile section */
+    .user-profile-section {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .profile-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .profile-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-hover);
+      object-fit: cover;
+    }
+    .profile-info {
+      flex-grow: 1;
+      min-width: 0;
+    }
+    .profile-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .profile-status {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-tertiary);
+      display: inline-block;
+    }
+    .status-dot.active {
+      background: var(--accent);
+      box-shadow: 0 0 6px var(--accent);
+    }
+    .status-dot.syncing {
+      background: #00e4ff;
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+    .btn-auth {
+      background: var(--bg-app);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      transition: all 0.2s ease;
+    }
+    .btn-auth:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+    }
+
+    /* Sidebar Search */
+    .sidebar-search {
+      position: relative;
+    }
+    .sidebar-search .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    .sidebar-search .search-input {
+      width: 100%;
+      padding: 10px 12px 10px 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-app);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+    .sidebar-search .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-glow);
+    }
+
+    /* Sidebar Navigation */
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex-grow: 1;
+    }
+    .nav-section-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
+      padding-left: 8px;
+    }
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
       font-family: var(--font-display);
-      font-size: 1.35rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+    .nav-btn.active {
+      background: rgba(0, 237, 100, 0.08);
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding-left: 9px;
+    }
+
+    /* Phase list inside navigation */
+    .phase-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-left: 8px;
+    }
+    .phase-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .phase-nav-item:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+    .phase-nav-item.active {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .phase-nav-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-right: 8px;
+      display: inline-block;
+    }
+    .phase-nav-completion {
+      font-size: 0.65rem;
+      color: var(--text-tertiary);
+      font-weight: 700;
+    }
+
+    /* Sidebar Progress Panel */
+    .sidebar-progress-panel {
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .sidebar-progress-panel .progress-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .sidebar-progress-panel .progress-bar-bg {
+      background: var(--border);
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+    .sidebar-progress-panel .progress-bar-fill {
+      background: var(--accent);
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+    .sidebar-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .sidebar-stats .stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+    }
+    .sidebar-stats .stat-row .lbl {
+      color: var(--text-secondary);
+    }
+    .sidebar-stats .stat-row .val {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* Main Content Area */
+    .main-panel {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg-app);
+    }
+
+    /* Top Bar Header */
+    .top-bar {
+      height: 64px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      flex-shrink: 0;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
       font-weight: 800;
       color: var(--text-primary);
     }
+    .top-bar-stats {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+    }
+    .top-bar-stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .top-bar-stat-item .lbl {
+      color: var(--text-secondary);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .top-bar-stat-item .val {
+      font-weight: 800;
+      color: var(--accent);
+    }
 
-    /* Controls: Search, Filters & Legend */
+    /* Scrollable Container */
+    .main-content-scroll {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 2rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+    .main-content-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .main-content-scroll::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hide redundant elements in new layout */
+    .header, .progress-card, .view-tabs {
+      display: none !important;
+    }
+
+    /* Clean, borderless controls panel */
     .controls-panel {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 1.25rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow-sm);
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+      box-shadow: none;
+    }
+    .controls-panel .search-wrapper {
+      display: none !important;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .dashboard-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem;
+        gap: 1rem;
+      }
+      .sidebar-brand {
+        padding-bottom: 0.5rem;
+      }
+      .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.25rem;
+      }
+      .nav-section-title, .phase-nav-list, .sidebar-progress-panel {
+        display: none !important;
+      }
+      .sidebar-search {
+        margin-bottom: 0;
+      }
+      .main-panel {
+        height: calc(100vh - 200px);
+      }
+      .top-bar {
+        padding: 0 1rem;
+      }
+      .main-content-scroll {
+        padding: 1rem;
+      }
     }
 
     .search-wrapper {
@@ -1863,263 +2054,280 @@
 
 <body>
 
-  <div class="wrap">
+  <!-- Firebase compatibility scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-    <!-- Header Section -->
-    <header class="header">
-      <div class="header-left">
-        <div class="title-row">
-          <h1 class="title">Full-Stack AI Engineer Roadmap</h1>
-          <span class="year-badge">2026 Edition</span>
+  <div class="dashboard-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <i class="ti ti-route-2"></i>
+        <div class="brand-text">
+          <h2>AI Roadmap</h2>
+          <span>Zero to Hero 2026</span>
         </div>
-        <p class="subtitle">
-          An interactive, zero-to-hero learning path containing curated YouTube links, official documentation, and
-          expert staleness watches. Use this guide to master the modern AI engineering landscape from foundations to
-          production-ready multi-agent ecosystems.
-        </p>
       </div>
-      <div class="header-actions">
-        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark/light theme" onclick="toggleTheme()">
-          <i class="ti ti-moon" id="theme-icon"></i>
-        </button>
-      </div>
-    </header>
 
-    <!-- Progress Tracker Card -->
-    <section class="progress-card" aria-label="Learning progress tracker">
-      <div class="progress-header">
-        <div class="progress-title">
-          <i class="ti ti-chart-bar" aria-hidden="true"></i> Learning Progress
-        </div>
-        <div class="progress-percentage" id="progress-text">0%</div>
+      <!-- User Profile & Auth -->
+      <div class="user-profile-section" id="user-profile-section">
+        <!-- Will be dynamically populated by Auth JS -->
       </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progress-fill"></div>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-label">Completed Cards</span>
-          <span class="stat-value" id="stats-completed">0 / 49</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Estimated Commitment</span>
-          <span class="stat-value">~42 Weeks</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Current Phase</span>
-          <span class="stat-value" id="stats-phase">Foundations</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">Target Role</span>
-          <span class="stat-value">AI Systems Engineer</span>
-        </div>
-      </div>
-    </section>
 
-    <!-- View Switcher Tabs -->
-    <div class="view-tabs" role="tablist">
-      <button class="view-tab-btn active" id="tab-roadmap" onclick="switchView('roadmap')" role="tab"
-        aria-selected="true">
-        <i class="ti ti-map-2" aria-hidden="true"></i> Roadmap Explorer
-      </button>
-      <button class="view-tab-btn" id="tab-projects" onclick="switchView('projects')" role="tab" aria-selected="false">
-        <i class="ti ti-git-fork" aria-hidden="true"></i> Project Sandbox
-      </button>
-      <button class="view-tab-btn" id="tab-docs" onclick="switchView('docs')" role="tab" aria-selected="false">
-        <i class="ti ti-school" aria-hidden="true"></i> AI Advertising Academy
-      </button>
-    </div>
-
-    <!-- Search & Filter Controls -->
-    <section class="controls-panel" aria-label="Roadmap filters and controls">
-      <div class="search-wrapper">
+      <!-- Search in Sidebar -->
+      <div class="sidebar-search">
         <i class="ti ti-search search-icon" aria-hidden="true"></i>
         <input type="text" id="search-input" class="search-input"
-          placeholder="Search topics, packages, resources, or warnings..." aria-label="Search roadmap cards">
+          placeholder="Search topics, packages, etc..." aria-label="Search roadmap">
       </div>
-      <div class="filter-pills" role="tablist">
-        <button class="filter-pill active" onclick="filterPhase('all')" role="tab" aria-selected="true">All
-          Phases</button>
-        <button class="filter-pill" onclick="filterPhase(1)" role="tab" aria-selected="false"><span
-            class="filter-pill-dot" style="background:var(--c-p1)"></span>P1: Foundations</button>
-        <button class="filter-pill" onclick="filterPhase(2)" role="tab" aria-selected="false"><span
-            class="filter-pill-dot" style="background:var(--c-p2)"></span>P2: Classical ML</button>
-        <button class="filter-pill" onclick="filterPhase(3)" role="tab" aria-selected="false"><span
-            class="filter-pill-dot" style="background:var(--c-p3)"></span>P3: Deep Learning</button>
-        <button class="filter-pill" onclick="filterPhase(4)" role="tab" aria-selected="false"><span
-            class="filter-pill-dot" style="background:var(--c-p4)"></span>P4: LLM Eng</button>
-        <button class="filter-pill" onclick="filterPhase(5)" role="tab" aria-selected="false"><span
-            class="filter-pill-dot" style="background:var(--c-p5)"></span>P5: Full Stack AI</button>
-        <button class="filter-pill" onclick="filterPhase(6)" role="tab" aria-selected="false"><span
-            class="filter-pill-dot" style="background:var(--c-p6)"></span>P6: Cloud &amp; MLOps</button>
-        <button class="filter-pill" onclick="filterPhase(7)" role="tab" aria-selected="false"><span
-            class="filter-pill-dot" style="background:var(--c-p7)"></span>P7: Agents</button>
+
+      <!-- Navigation & Views -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Views</div>
+        <button class="nav-btn active" id="btn-view-roadmap" onclick="switchView('roadmap')">
+          <i class="ti ti-map-2" aria-hidden="true"></i> Roadmap Explorer
+        </button>
+        <button class="nav-btn" id="btn-view-projects" onclick="switchView('projects')">
+          <i class="ti ti-git-fork" aria-hidden="true"></i> Project Sandbox
+        </button>
+        <button class="nav-btn" id="btn-view-docs" onclick="switchView('docs')">
+          <i class="ti ti-school" aria-hidden="true"></i> AI Academy
+        </button>
+
+        <div class="nav-section-title roadmap-only-nav">Roadmap Phases</div>
+        <div class="phase-nav-list roadmap-only-nav" id="phase-nav-list">
+          <!-- Dynamically populated phase links -->
+        </div>
+      </nav>
+
+      <!-- Sidebar Progress -->
+      <div class="sidebar-progress-panel">
+        <div class="progress-info">
+          <span>Roadmap Completion</span>
+          <span id="sidebar-progress-text">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="sidebar-progress-fill"></div>
+        </div>
+        <div class="sidebar-stats">
+          <div class="stat-row">
+            <span class="lbl">Completed Cards</span>
+            <span class="val" id="sidebar-stats-completed">0 / 49</span>
+          </div>
+          <div class="stat-row">
+            <span class="lbl">Commitment</span>
+            <span class="val">~42 Weeks</span>
+          </div>
+          <div class="stat-row">
+            <span class="lbl">Current Phase</span>
+            <span class="val" id="sidebar-stats-phase">Foundations</span>
+          </div>
+        </div>
       </div>
-    </section>
+    </aside>
 
-    <!-- Empty Search State -->
-    <div class="no-results-panel" id="no-results">
-      <i class="ti ti-search-off" aria-hidden="true"></i>
-      <h3>No Matches Found</h3>
-      <p>Try searching for different keywords, packages, or specific phases.</p>
-    </div>
-
-    <!-- Roadmap Blocks (Dynamically Filled by JS) -->
-    <main class="roadmap-container">
-
-      <!-- Phase 1 -->
-      <section class="phase-section" data-phase="1" id="phase-1-section">
-        <div class="phase-header-block">
-          <div class="phase-badge-num">1</div>
-          <h2 class="phase-title-text">Foundations — Python, Math &amp; Data</h2>
-          <span class="phase-timeline-text">Weeks 1–4 · Prerequisite skills for modern AI engineers</span>
+    <!-- Main Content Panel -->
+    <main class="main-panel">
+      <!-- Top Bar Header -->
+      <header class="top-bar">
+        <h1 class="page-title" id="page-title">Roadmap Explorer</h1>
+        
+        <!-- Live statistics / updates -->
+        <div class="top-bar-stats">
+          <div class="top-bar-stat-item">
+            <span class="lbl">Target Role</span>
+            <span class="val" style="color:var(--text-primary);">AI Systems Engineer</span>
+          </div>
+          <div class="top-bar-stat-item">
+            <span class="lbl">Completed</span>
+            <span class="val" id="top-bar-completed-val">0/49</span>
+          </div>
         </div>
-        <div class="cards-grid" id="phase-1-grid"></div>
-      </section>
+      </header>
 
-      <!-- Phase 2 -->
-      <section class="phase-section" data-phase="2" id="phase-2-section">
-        <div class="phase-header-block">
-          <div class="phase-badge-num">2</div>
-          <h2 class="phase-title-text">Classical Machine Learning</h2>
-          <span class="phase-timeline-text">Weeks 5–8 · Core mathematical ML intuition &amp; tabular models</span>
+      <!-- Scrollable Main Container -->
+      <div class="main-content-scroll">
+        <div class="wrap">
+
+          <!-- Hidden legacy components to prevent JS script selector breakages -->
+          <div style="display:none;">
+            <header class="header">
+              <div class="header-left"><h1 class="title">Legacy</h1></div>
+              <div class="header-actions"><button id="theme-toggle" onclick="toggleTheme()"><i id="theme-icon"></i></button></div>
+            </header>
+            <section class="progress-card">
+              <div id="progress-text">0%</div>
+              <div id="progress-fill"></div>
+              <div id="stats-completed">0/49</div>
+              <div id="stats-phase">Foundations</div>
+            </section>
+            <div class="view-tabs">
+              <button id="tab-roadmap" onclick="switchView('roadmap')"></button>
+              <button id="tab-projects" onclick="switchView('projects')"></button>
+              <button id="tab-docs" onclick="switchView('docs')"></button>
+            </div>
+          </div>
+
+          <!-- Controls panel (strictly filter pills now) -->
+          <section class="controls-panel" aria-label="Roadmap filters">
+            <div class="search-wrapper" style="display:none !important;">
+              <input type="text" id="legacy-search-input">
+            </div>
+            <div class="filter-pills" role="tablist">
+              <button class="filter-pill active" onclick="filterPhase('all')" role="tab" aria-selected="true">All Phases</button>
+              <button class="filter-pill" onclick="filterPhase(1)" role="tab" aria-selected="false"><span class="filter-pill-dot" style="background:var(--c-p1)"></span>P1: Foundations</button>
+              <button class="filter-pill" onclick="filterPhase(2)" role="tab" aria-selected="false"><span class="filter-pill-dot" style="background:var(--c-p2)"></span>P2: Classical ML</button>
+              <button class="filter-pill" onclick="filterPhase(3)" role="tab" aria-selected="false"><span class="filter-pill-dot" style="background:var(--c-p3)"></span>P3: Deep Learning</button>
+              <button class="filter-pill" onclick="filterPhase(4)" role="tab" aria-selected="false"><span class="filter-pill-dot" style="background:var(--c-p4)"></span>P4: LLM Eng</button>
+              <button class="filter-pill" onclick="filterPhase(5)" role="tab" aria-selected="false"><span class="filter-pill-dot" style="background:var(--c-p5)"></span>P5: Full Stack AI</button>
+              <button class="filter-pill" onclick="filterPhase(6)" role="tab" aria-selected="false"><span class="filter-pill-dot" style="background:var(--c-p6)"></span>P6: Cloud &amp; MLOps</button>
+              <button class="filter-pill" onclick="filterPhase(7)" role="tab" aria-selected="false"><span class="filter-pill-dot" style="background:var(--c-p7)"></span>P7: Agents</button>
+            </div>
+          </section>
+
+          <!-- Empty Search State -->
+          <div class="no-results-panel" id="no-results">
+            <i class="ti ti-search-off" aria-hidden="true"></i>
+            <h3>No Matches Found</h3>
+            <p>Try searching for different keywords, packages, or specific phases.</p>
+          </div>
+
+          <!-- Roadmap Blocks (Dynamically Filled by JS) -->
+          <main class="roadmap-container">
+            <!-- Phase 1 -->
+            <section class="phase-section" data-phase="1" id="phase-1-section">
+              <div class="phase-header-block">
+                <div class="phase-badge-num">1</div>
+                <h2 class="phase-title-text">Foundations — Python, Math &amp; Data</h2>
+                <span class="phase-timeline-text">Weeks 1–4 · Prerequisite skills for modern AI engineers</span>
+              </div>
+              <div class="cards-grid" id="phase-1-grid"></div>
+            </section>
+            <!-- Phase 2 -->
+            <section class="phase-section" data-phase="2" id="phase-2-section">
+              <div class="phase-header-block">
+                <div class="phase-badge-num">2</div>
+                <h2 class="phase-title-text">Classical Machine Learning</h2>
+                <span class="phase-timeline-text">Weeks 5–8 · Core mathematical ML intuition &amp; tabular models</span>
+              </div>
+              <div class="cards-grid" id="phase-2-grid"></div>
+            </section>
+            <!-- Phase 3 -->
+            <section class="phase-section" data-phase="3" id="phase-3-section">
+              <div class="phase-header-block">
+                <div class="phase-badge-num">3</div>
+                <h2 class="phase-title-text">Deep Learning &amp; Neural Networks</h2>
+                <span class="phase-timeline-text">Weeks 9–14 · From multilayer perceptrons to Transformer blocks</span>
+              </div>
+              <div class="cards-grid" id="phase-3-grid"></div>
+            </section>
+            <!-- Phase 4 -->
+            <section class="phase-section" data-phase="4" id="phase-4-section">
+              <div class="phase-header-block">
+                <div class="phase-badge-num">4</div>
+                <h2 class="phase-title-text">LLM Engineering — The Core</h2>
+                <span class="phase-timeline-text">Weeks 15–22 · APIs, Vector DBs, Prompting, Fine-Tuning &amp; Evals</span>
+              </div>
+              <div class="cards-grid" id="phase-4-grid"></div>
+            </section>
+            <!-- Phase 5 -->
+            <section class="phase-section" data-phase="5" id="phase-5-section">
+              <div class="phase-header-block">
+                <div class="phase-badge-num">5</div>
+                <h2 class="phase-title-text">Full Stack Development for AI Apps</h2>
+                <span class="phase-timeline-text">Weeks 23–28 · Backend APIs, streaming responses, auth &amp; metered billing</span>
+              </div>
+              <div class="cards-grid" id="phase-5-grid"></div>
+            </section>
+            <!-- Phase 6 -->
+            <section class="phase-section" data-phase="6" id="phase-6-section">
+              <div class="phase-header-block">
+                <div class="phase-badge-num">6</div>
+                <h2 class="phase-title-text">Cloud Infrastructure &amp; MLOps</h2>
+                <span class="phase-timeline-text">Weeks 29–34 · Scale, vLLM serving, Docker/K8s containerization &amp; observabilities</span>
+              </div>
+              <div class="cards-grid" id="phase-6-grid"></div>
+            </section>
+            <!-- Phase 7 -->
+            <section class="phase-section" data-phase="7" id="phase-7-section">
+              <div class="phase-header-block">
+                <div class="phase-badge-num">7</div>
+                <h2 class="phase-title-text">AI Agents &amp; Production Systems</h2>
+                <span class="phase-timeline-text">Weeks 35–42 · Autonomous planning, MCP servers, WebRTC voice agents &amp; dev workflows</span>
+              </div>
+              <div class="cards-grid" id="phase-7-grid"></div>
+            </section>
+          </main>
+
+          <!-- Project Sandbox Container -->
+          <div id="projects-view-container" style="display: none;">
+            <!-- Project Stats Summary -->
+            <div class="projects-stats-card">
+              <div class="projects-stats-header">
+                <div class="projects-stats-title">
+                  <i class="ti ti-trophy" aria-hidden="true"></i> Project Completion Sandbox
+                </div>
+                <div class="projects-stats-summary-text" id="projects-overall-stats">0 / 49 Completed</div>
+              </div>
+              <div class="projects-stats-bars">
+                <div class="project-stat-bar-wrapper">
+                  <span class="project-stat-bar-label">Beginner</span>
+                  <div class="project-stat-bar-track">
+                    <div class="project-stat-bar-fill" id="bar-beginner" style="width: 0%; background: var(--c-beginner);"></div>
+                  </div>
+                  <span class="project-stat-bar-val" id="val-beginner">0 / 0</span>
+                </div>
+                <div class="project-stat-bar-wrapper">
+                  <span class="project-stat-bar-label">Intermediate</span>
+                  <div class="project-stat-bar-track">
+                    <div class="project-stat-bar-fill" id="bar-intermediate" style="width: 0%; background: var(--c-intermediate);"></div>
+                  </div>
+                  <span class="project-stat-bar-val" id="val-intermediate">0 / 0</span>
+                </div>
+                <div class="project-stat-bar-wrapper">
+                  <span class="project-stat-bar-label">Advanced</span>
+                  <div class="project-stat-bar-track">
+                    <div class="project-stat-bar-fill" id="bar-advanced" style="width: 0%; background: var(--c-advanced);"></div>
+                  </div>
+                  <span class="project-stat-bar-val" id="val-advanced">0 / 0</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project View Sub-controls (Difficulty Filter) -->
+            <div class="project-subcontrols">
+              <span class="project-subcontrols-label"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i> Difficulty:</span>
+              <div class="filter-pills" role="tablist" style="margin-bottom: 0;">
+                <button class="filter-pill active" id="diff-pill-all" onclick="filterDifficulty('all')" role="tab" aria-selected="true">All</button>
+                <button class="filter-pill" id="diff-pill-beginner" onclick="filterDifficulty('Beginner')" role="tab" aria-selected="false">Beginner</button>
+                <button class="filter-pill" id="diff-pill-intermediate" onclick="filterDifficulty('Intermediate')" role="tab" aria-selected="false">Intermediate</button>
+                <button class="filter-pill" id="diff-pill-advanced" onclick="filterDifficulty('Advanced')" role="tab" aria-selected="false">Advanced</button>
+              </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projects-grid"></div>
+          </div>
+
+          <!-- AI Advertising Academy Documentation View -->
+          <div id="docs-view-container" style="display: none;">
+            <div class="docs-layout">
+              <!-- Docs Sidebar -->
+              <aside class="docs-sidebar" aria-label="Documentation Chapters">
+                <div class="docs-sidebar-header">
+                  <i class="ti ti-books" aria-hidden="true"></i> Course Curriculum
+                </div>
+                <div class="docs-sidebar-menu" id="docs-sidebar-menu"></div>
+              </aside>
+              <!-- Docs Main Content Panel -->
+              <article class="docs-content" id="docs-content-panel"></article>
+            </div>
+          </div>
+
         </div>
-        <div class="cards-grid" id="phase-2-grid"></div>
-      </section>
-
-      <!-- Phase 3 -->
-      <section class="phase-section" data-phase="3" id="phase-3-section">
-        <div class="phase-header-block">
-          <div class="phase-badge-num">3</div>
-          <h2 class="phase-title-text">Deep Learning &amp; Neural Networks</h2>
-          <span class="phase-timeline-text">Weeks 9–14 · From multilayer perceptrons to Transformer blocks</span>
-        </div>
-        <div class="cards-grid" id="phase-3-grid"></div>
-      </section>
-
-      <!-- Phase 4 -->
-      <section class="phase-section" data-phase="4" id="phase-4-section">
-        <div class="phase-header-block">
-          <div class="phase-badge-num">4</div>
-          <h2 class="phase-title-text">LLM Engineering — The Core</h2>
-          <span class="phase-timeline-text">Weeks 15–22 · APIs, Vector DBs, Prompting, Fine-Tuning &amp; Evals</span>
-        </div>
-        <div class="cards-grid" id="phase-4-grid"></div>
-      </section>
-
-      <!-- Phase 5 -->
-      <section class="phase-section" data-phase="5" id="phase-5-section">
-        <div class="phase-header-block">
-          <div class="phase-badge-num">5</div>
-          <h2 class="phase-title-text">Full Stack Development for AI Apps</h2>
-          <span class="phase-timeline-text">Weeks 23–28 · Backend APIs, streaming responses, auth &amp; metered
-            billing</span>
-        </div>
-        <div class="cards-grid" id="phase-5-grid"></div>
-      </section>
-
-      <!-- Phase 6 -->
-      <section class="phase-section" data-phase="6" id="phase-6-section">
-        <div class="phase-header-block">
-          <div class="phase-badge-num">6</div>
-          <h2 class="phase-title-text">Cloud Infrastructure &amp; MLOps</h2>
-          <span class="phase-timeline-text">Weeks 29–34 · Scale, vLLM serving, Docker/K8s containerization &amp;
-            observabilities</span>
-        </div>
-        <div class="cards-grid" id="phase-6-grid"></div>
-      </section>
-
-      <!-- Phase 7 -->
-      <section class="phase-section" data-phase="7" id="phase-7-section">
-        <div class="phase-header-block">
-          <div class="phase-badge-num">7</div>
-          <h2 class="phase-title-text">AI Agents &amp; Production Systems</h2>
-          <span class="phase-timeline-text">Weeks 35–42 · Autonomous planning, MCP servers, WebRTC voice agents &amp;
-            dev workflows</span>
-        </div>
-        <div class="cards-grid" id="phase-7-grid"></div>
-      </section>
-
+      </div>
     </main>
-
-    <!-- Project Sandbox Container -->
-    <div id="projects-view-container" style="display: none;">
-      <!-- Project Stats Summary -->
-      <div class="projects-stats-card">
-        <div class="projects-stats-header">
-          <div class="projects-stats-title">
-            <i class="ti ti-trophy" aria-hidden="true"></i> Project Completion Sandbox
-          </div>
-          <div class="projects-stats-summary-text" id="projects-overall-stats">0 / 49 Completed</div>
-        </div>
-        <div class="projects-stats-bars">
-          <div class="project-stat-bar-wrapper">
-            <span class="project-stat-bar-label">Beginner</span>
-            <div class="project-stat-bar-track">
-              <div class="project-stat-bar-fill" id="bar-beginner" style="width: 0%; background: var(--c-beginner);">
-              </div>
-            </div>
-            <span class="project-stat-bar-val" id="val-beginner">0 / 0</span>
-          </div>
-          <div class="project-stat-bar-wrapper">
-            <span class="project-stat-bar-label">Intermediate</span>
-            <div class="project-stat-bar-track">
-              <div class="project-stat-bar-fill" id="bar-intermediate"
-                style="width: 0%; background: var(--c-intermediate);"></div>
-            </div>
-            <span class="project-stat-bar-val" id="val-intermediate">0 / 0</span>
-          </div>
-          <div class="project-stat-bar-wrapper">
-            <span class="project-stat-bar-label">Advanced</span>
-            <div class="project-stat-bar-track">
-              <div class="project-stat-bar-fill" id="bar-advanced" style="width: 0%; background: var(--c-advanced);">
-              </div>
-            </div>
-            <span class="project-stat-bar-val" id="val-advanced">0 / 0</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project View Sub-controls (Difficulty Filter) -->
-      <div class="project-subcontrols">
-        <span class="project-subcontrols-label"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i>
-          Difficulty:</span>
-        <div class="filter-pills" role="tablist" style="margin-bottom: 0;">
-          <button class="filter-pill active" id="diff-pill-all" onclick="filterDifficulty('all')" role="tab"
-            aria-selected="true">All</button>
-          <button class="filter-pill" id="diff-pill-beginner" onclick="filterDifficulty('Beginner')" role="tab"
-            aria-selected="false">Beginner</button>
-          <button class="filter-pill" id="diff-pill-intermediate" onclick="filterDifficulty('Intermediate')" role="tab"
-            aria-selected="false">Intermediate</button>
-          <button class="filter-pill" id="diff-pill-advanced" onclick="filterDifficulty('Advanced')" role="tab"
-            aria-selected="false">Advanced</button>
-        </div>
-      </div>
-
-      <!-- Projects Grid -->
-      <div class="projects-grid" id="projects-grid"></div>
-    </div>
-
-    <!-- AI Advertising Academy Documentation View -->
-    <div id="docs-view-container" style="display: none;">
-      <div class="docs-layout">
-        <!-- Docs Sidebar -->
-        <aside class="docs-sidebar" aria-label="Documentation Chapters">
-          <div class="docs-sidebar-header">
-            <i class="ti ti-books" aria-hidden="true"></i> Course Curriculum
-          </div>
-          <div class="docs-sidebar-menu" id="docs-sidebar-menu">
-            <!-- Sidebar links will be dynamically populated -->
-          </div>
-        </aside>
-
-        <!-- Docs Main Content Panel -->
-        <article class="docs-content" id="docs-content-panel">
-          <!-- Main content body will be dynamically populated -->
-        </article>
-      </div>
-    </div>
-
   </div>
 
   <script>
@@ -4996,11 +5204,261 @@ Instructions:
     let projectDifficultyFilter = 'all';
 
     // ----------------------------------------------------
+    // GOOGLE AUTHENTICATION & CLOUD SYNC CONFIGURATION
+    // ----------------------------------------------------
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    let db = null;
+    let auth = null;
+    let currentUser = null;
+    let isFirebaseActive = false;
+
+    function initFirebase() {
+      if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+        try {
+          firebase.initializeApp(firebaseConfig);
+          auth = firebase.auth();
+          db = firebase.firestore();
+          isFirebaseActive = true;
+          console.log("Firebase initialized successfully.");
+
+          auth.onAuthStateChanged(user => {
+            handleAuthStateChange(user);
+          });
+        } catch (error) {
+          console.error("Error initializing Firebase:", error);
+          updateProfileUI(null, "error");
+        }
+      } else {
+        console.log("Firebase running in Local Storage fallback mode.");
+        updateProfileUI(null, "local");
+      }
+    }
+
+    async function handleAuthStateChange(user) {
+      currentUser = user;
+      if (user) {
+        updateProfileUI(user, "synced");
+        await syncProgressWithCloud(user);
+      } else {
+        updateProfileUI(null, "local");
+      }
+    }
+
+    function updateProfileUI(user, status) {
+      const profileSection = document.getElementById('user-profile-section');
+      if (!profileSection) return;
+
+      if (user) {
+        const photoURL = user.photoURL || 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
+        const displayName = user.displayName || 'Developer';
+        
+        let statusText = "Sync Active";
+        let dotClass = "active";
+        if (status === "syncing") {
+          statusText = "Syncing...";
+          dotClass = "syncing";
+        } else if (status === "error") {
+          statusText = "Sync Error";
+          dotClass = "";
+        }
+
+        profileSection.innerHTML = `
+          <div class="profile-card">
+            <img src="${photoURL}" class="profile-avatar" alt="Avatar">
+            <div class="profile-info">
+              <div class="profile-name">${displayName}</div>
+              <div class="profile-status">
+                <span class="status-dot ${dotClass}"></span>
+                <span>${statusText}</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-auth" style="margin-top: 8px; padding: 6px;" onclick="signOutWithGoogle()">
+            <i class="ti ti-logout"></i> Sign Out
+          </button>
+        `;
+      } else {
+        let statusText = "Local Mode";
+        let dotClass = "";
+        if (status === "error") {
+          statusText = "Config Error";
+        }
+        profileSection.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="font-size:0.75rem; color:var(--text-secondary); text-align:center;">
+              <span class="status-dot ${dotClass}" style="margin-right:4px;"></span>
+              <span>${statusText}</span>
+            </div>
+            <button class="btn-auth" onclick="signInWithGoogle()">
+              <i class="ti ti-brand-google"></i> Sign In with Google
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    async function signInWithGoogle() {
+      if (!isFirebaseActive) {
+        alert("Firebase keys are not configured yet. Insert your Firebase credentials at the top of the script tag to enable Google Auth & Sync.");
+        return;
+      }
+      const provider = new firebase.auth.GoogleAuthProvider();
+      try {
+        await auth.signInWithPopup(provider);
+      } catch (error) {
+        console.error("Sign-in failed:", error);
+        alert("Sign-in failed: " + error.message);
+      }
+    }
+
+    async function signOutWithGoogle() {
+      if (!isFirebaseActive) return;
+      try {
+        await auth.signOut();
+      } catch (error) {
+        console.error("Sign-out failed:", error);
+      }
+    }
+
+    async function syncProgressWithCloud(user) {
+      if (!isFirebaseActive || !user) return;
+      
+      updateProfileUI(user, "syncing");
+      const userRef = db.collection('users').doc(user.uid);
+
+      try {
+        const doc = await userRef.get();
+        let cloudCompleted = [];
+        if (doc.exists) {
+          const data = doc.data();
+          if (data && data.completed) {
+            cloudCompleted = data.completed;
+          }
+        }
+
+        const localCompleted = JSON.parse(localStorage.getItem('ai_roadmap_completed')) || [];
+        const merged = Array.from(new Set([...localCompleted, ...cloudCompleted]));
+        
+        completedCards = merged;
+        localStorage.setItem('ai_roadmap_completed', JSON.stringify(completedCards));
+
+        await userRef.set({
+          completed: completedCards,
+          lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+        }, { merge: true });
+
+        updateProfileUI(user, "synced");
+        updateProgressStats();
+        if (typeof updateProjectStats === 'function') {
+          updateProjectStats();
+        }
+        
+        // Re-render styles
+        roadmapData.forEach(card => {
+          const cardEl = document.getElementById(`card-${card.id}`);
+          const projEl = document.getElementById(`project-card-${card.id}`);
+          
+          if (completedCards.includes(card.id)) {
+            if (cardEl) cardEl.classList.add('completed');
+            if (projEl) {
+              projEl.classList.add('completed');
+              const compBtn = projEl.querySelector('.project-complete-btn');
+              if (compBtn) compBtn.innerHTML = '<i class="ti ti-check" aria-hidden="true"></i> Done';
+            }
+          } else {
+            if (cardEl) cardEl.classList.remove('completed');
+            if (projEl) {
+              projEl.classList.remove('completed');
+              const compBtn = projEl.querySelector('.project-complete-btn');
+              if (compBtn) compBtn.innerHTML = '<i class="ti ti-check" aria-hidden="true"></i> Complete';
+            }
+          }
+        });
+
+      } catch (error) {
+        console.error("Cloud syncing failed:", error);
+        updateProfileUI(user, "error");
+      }
+    }
+
+    async function triggerCloudUpdate() {
+      if (isFirebaseActive && currentUser) {
+        updateProfileUI(currentUser, "syncing");
+        const userRef = db.collection('users').doc(currentUser.uid);
+        try {
+          await userRef.set({
+            completed: completedCards,
+            lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+          }, { merge: true });
+          updateProfileUI(currentUser, "synced");
+        } catch (error) {
+          console.error("Cloud update failed:", error);
+          updateProfileUI(currentUser, "error");
+        }
+      }
+    }
+
+    // Dynamic phase navigation links in sidebar
+    function renderPhaseNavLinks() {
+      const navList = document.getElementById('phase-nav-list');
+      if (!navList) return;
+      navList.innerHTML = '';
+
+      const phases = [
+        { num: 1, name: "Foundations" },
+        { num: 2, name: "Classical ML" },
+        { num: 3, name: "Deep Learning" },
+        { num: 4, name: "LLM Eng" },
+        { num: 5, name: "Full Stack AI" },
+        { num: 6, name: "Cloud & MLOps" },
+        { num: 7, name: "Agents" }
+      ];
+
+      phases.forEach(p => {
+        const item = document.createElement('div');
+        // Determine if this is the active filter
+        const isActive = currentFilter !== 'all' && Number(currentFilter) === p.num;
+        item.className = `phase-nav-item ${isActive ? 'active' : ''}`;
+        item.onclick = () => {
+          const target = document.getElementById(`phase-${p.num}-section`);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            filterPhase(p.num);
+          }
+        };
+
+        const phaseCards = roadmapData.filter(c => c.phase === p.num);
+        const completedPhaseCards = phaseCards.filter(c => completedCards.includes(c.id));
+        const countStr = `${completedPhaseCards.length}/${phaseCards.length}`;
+
+        item.innerHTML = `
+          <div>
+            <span class="phase-nav-dot" style="background: var(--c-p${p.num});"></span>
+            <span>P${p.num}: ${p.name}</span>
+          </div>
+          <span class="phase-nav-completion">${countStr}</span>
+        `;
+        navList.appendChild(item);
+      });
+    }
+
+    // ----------------------------------------------------
     // INITIALIZATION
     // ----------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize theme
       initTheme();
+
+      // Initialize Firebase Auth
+      initFirebase();
 
       // Render cards
       renderAllCards();
@@ -5018,10 +5476,12 @@ Instructions:
 
       // Search input event listener
       const searchInput = document.getElementById('search-input');
-      searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value.toLowerCase();
-        applyFilterAndSearch();
-      });
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.toLowerCase();
+          applyFilterAndSearch();
+        });
+      }
     });
 
     // ----------------------------------------------------
@@ -5725,6 +6185,9 @@ Instructions:
       if (typeof updateProjectStats === 'function') {
         updateProjectStats();
       }
+
+      // Sync the updated progress state to Firebase Firestore in the background
+      triggerCloudUpdate();
     }
 
     function triggerAskPrompt(title, event) {
@@ -5748,10 +6211,25 @@ Instructions:
       const completedCount = completedCards.length;
       const percentage = Math.round((completedCount / total) * 100) || 0;
 
-      // Update progress bar
-      document.getElementById('progress-fill').style.width = `${percentage}%`;
-      document.getElementById('progress-text').innerText = `${percentage}%`;
-      document.getElementById('stats-completed').innerText = `${completedCount} / ${total}`;
+      // Update progress bar (legacy hidden tags first)
+      const progFill = document.getElementById('progress-fill');
+      const progText = document.getElementById('progress-text');
+      const statsComp = document.getElementById('stats-completed');
+      if (progFill) progFill.style.width = `${percentage}%`;
+      if (progText) progText.innerText = `${percentage}%`;
+      if (statsComp) statsComp.innerText = `${completedCount} / ${total}`;
+
+      // Update sidebar new progress elements
+      const sidebarProgressFill = document.getElementById('sidebar-progress-fill');
+      const sidebarProgressText = document.getElementById('sidebar-progress-text');
+      const sidebarStatsCompleted = document.getElementById('sidebar-stats-completed');
+      const sidebarStatsPhase = document.getElementById('sidebar-stats-phase');
+      const topBarCompletedVal = document.getElementById('top-bar-completed-val');
+
+      if (sidebarProgressFill) sidebarProgressFill.style.width = `${percentage}%`;
+      if (sidebarProgressText) sidebarProgressText.innerText = `${percentage}%`;
+      if (sidebarStatsCompleted) sidebarStatsCompleted.innerText = `${completedCount} / ${total}`;
+      if (topBarCompletedVal) topBarCompletedVal.innerText = `${completedCount} / ${total}`;
 
       // Update current phase based on first uncompleted card phase
       let currentPhaseName = "Foundations";
@@ -5779,7 +6257,12 @@ Instructions:
         currentPhaseName = phaseNames[activePhase];
       }
 
-      document.getElementById('stats-phase').innerText = currentPhaseName;
+      const statsPhase = document.getElementById('stats-phase');
+      if (statsPhase) statsPhase.innerText = currentPhaseName;
+      if (sidebarStatsPhase) sidebarStatsPhase.innerText = currentPhaseName;
+
+      // Dynamically update the phase navigator lists and metrics
+      renderPhaseNavLinks();
     }
 
     // ----------------------------------------------------
@@ -5932,8 +6415,15 @@ Instructions:
       const searchInput = document.getElementById('search-input');
       const mainFilterPills = document.querySelector('.controls-panel .filter-pills');
 
+      // Sidebar button elements
+      const btnRoadmap = document.getElementById('btn-view-roadmap');
+      const btnProjects = document.getElementById('btn-view-projects');
+      const btnDocs = document.getElementById('btn-view-docs');
+      const pageTitle = document.getElementById('page-title');
+      const roadmapNavs = document.querySelectorAll('.roadmap-only-nav');
+
       // Reset active tab button states
-      [tabRoadmap, tabProjects, tabDocs].forEach(tab => {
+      [tabRoadmap, tabProjects, tabDocs, btnRoadmap, btnProjects, btnDocs].forEach(tab => {
         if (tab) {
           tab.classList.remove('active');
           tab.setAttribute('aria-selected', 'false');
@@ -5950,6 +6440,12 @@ Instructions:
           tabRoadmap.classList.add('active');
           tabRoadmap.setAttribute('aria-selected', 'true');
         }
+        if (btnRoadmap) {
+          btnRoadmap.classList.add('active');
+          btnRoadmap.setAttribute('aria-selected', 'true');
+        }
+        if (pageTitle) pageTitle.innerText = "Roadmap Explorer";
+        roadmapNavs.forEach(el => el.style.display = '');
         if (roadmapContainer) roadmapContainer.style.display = 'block';
         if (mainFilterPills) mainFilterPills.style.display = 'flex';
         if (searchInput) searchInput.placeholder = "Search topics, packages, resources, or warnings...";
@@ -5958,6 +6454,12 @@ Instructions:
           tabProjects.classList.add('active');
           tabProjects.setAttribute('aria-selected', 'true');
         }
+        if (btnProjects) {
+          btnProjects.classList.add('active');
+          btnProjects.setAttribute('aria-selected', 'true');
+        }
+        if (pageTitle) pageTitle.innerText = "Project Sandbox Hub";
+        roadmapNavs.forEach(el => el.style.display = 'none');
         if (projectsContainer) projectsContainer.style.display = 'block';
         if (mainFilterPills) mainFilterPills.style.display = 'flex';
         if (searchInput) searchInput.placeholder = "Search projects, descriptions, tools, or difficulties...";
@@ -5966,6 +6468,12 @@ Instructions:
           tabDocs.classList.add('active');
           tabDocs.setAttribute('aria-selected', 'true');
         }
+        if (btnDocs) {
+          btnDocs.classList.add('active');
+          btnDocs.setAttribute('aria-selected', 'true');
+        }
+        if (pageTitle) pageTitle.innerText = "AI Academy Curriculum";
+        roadmapNavs.forEach(el => el.style.display = 'none');
         if (docsContainer) docsContainer.style.display = 'block';
         if (mainFilterPills) mainFilterPills.style.display = 'none';
         if (searchInput) searchInput.placeholder = "Search academy curriculum, prompt structures, or workflows...";
