@@ -1,0 +1,9 @@
+{
+  "name": "aimap-backend",
+  "version": "1.0.0",
+  "description": "Serverless backend for AI Engineer Roadmap cloud synchronization",
+  "main": "api/sync.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0"
+  }
+}

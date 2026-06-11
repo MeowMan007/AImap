@@ -2054,10 +2054,8 @@
 
 <body>
 
-  <!-- Firebase compatibility scripts -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <!-- Google Identity Services script for dynamic OAuth login -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 
   <div class="dashboard-container">
     <!-- Left Sidebar -->
@@ -5206,50 +5204,90 @@ Instructions:
     // ----------------------------------------------------
     // GOOGLE AUTHENTICATION & CLOUD SYNC CONFIGURATION
     // ----------------------------------------------------
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_AUTH_DOMAIN",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
+    let currentUser = null; // Decoded JWT profile details
+    let currentCredential = localStorage.getItem('google_auth_token') || null;
+    let googleClientId = null;
+    let isSyncActive = false;
 
-    let db = null;
-    let auth = null;
-    let currentUser = null;
-    let isFirebaseActive = false;
+    // Helper: decode JWT client-side
+    function decodeJwt(token) {
+      try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+      } catch (error) {
+        console.error("JWT decode error:", error);
+        return null;
+      }
+    }
 
-    function initFirebase() {
-      if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+    // Fetch Google Client ID and initialize Google Identity Services
+    async function initGoogleAuth() {
+      try {
+        const response = await fetch('/api/sync');
+        if (response.ok) {
+          const config = await response.json();
+          googleClientId = config.googleClientId;
+        }
+      } catch (err) {
+        console.warn("Could not fetch server auth configuration. Running in offline/local storage fallback mode.");
+      }
+
+      if (googleClientId) {
         try {
-          firebase.initializeApp(firebaseConfig);
-          auth = firebase.auth();
-          db = firebase.firestore();
-          isFirebaseActive = true;
-          console.log("Firebase initialized successfully.");
-
-          auth.onAuthStateChanged(user => {
-            handleAuthStateChange(user);
+          google.accounts.id.initialize({
+            client_id: googleClientId,
+            callback: handleCredentialResponse
           });
+          isSyncActive = true;
+          console.log("Google Identity Services initialized successfully.");
+          
+          if (currentCredential) {
+            currentUser = decodeJwt(currentCredential);
+            if (currentUser) {
+              updateProfileUI(currentUser, "synced");
+              await syncProgressWithCloud();
+            } else {
+              signOut();
+            }
+          } else {
+            updateProfileUI(null, "local");
+          }
         } catch (error) {
-          console.error("Error initializing Firebase:", error);
+          console.error("Error initializing Google Identity Services:", error);
           updateProfileUI(null, "error");
         }
       } else {
-        console.log("Firebase running in Local Storage fallback mode.");
+        console.log("Running in Local Storage fallback mode.");
         updateProfileUI(null, "local");
       }
     }
 
-    async function handleAuthStateChange(user) {
-      currentUser = user;
-      if (user) {
-        updateProfileUI(user, "synced");
-        await syncProgressWithCloud(user);
+    async function handleCredentialResponse(response) {
+      currentCredential = response.credential;
+      localStorage.setItem('google_auth_token', currentCredential);
+      currentUser = decodeJwt(currentCredential);
+      if (currentUser) {
+        updateProfileUI(currentUser, "synced");
+        await syncProgressWithCloud();
       } else {
-        updateProfileUI(null, "local");
+        updateProfileUI(null, "error");
       }
+    }
+
+    function signOut() {
+      localStorage.removeItem('google_auth_token');
+      currentCredential = null;
+      currentUser = null;
+      updateProfileUI(null, "local");
+      updateProgressStats();
+      if (typeof updateProjectStats === 'function') {
+        updateProjectStats();
+      }
+      renderPhaseNavLinks();
     }
 
     function updateProfileUI(user, status) {
@@ -5257,8 +5295,8 @@ Instructions:
       if (!profileSection) return;
 
       if (user) {
-        const photoURL = user.photoURL || 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
-        const displayName = user.displayName || 'Developer';
+        const photoURL = user.picture || 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
+        const displayName = user.name || 'Developer';
         
         let statusText = "Sync Active";
         let dotClass = "active";
@@ -5281,7 +5319,7 @@ Instructions:
               </div>
             </div>
           </div>
-          <button class="btn-auth" style="margin-top: 8px; padding: 6px;" onclick="signOutWithGoogle()">
+          <button class="btn-auth" style="margin-top: 8px; padding: 6px;" onclick="signOut()">
             <i class="ti ti-logout"></i> Sign Out
           </button>
         `;
@@ -5297,71 +5335,57 @@ Instructions:
               <span class="status-dot ${dotClass}" style="margin-right:4px;"></span>
               <span>${statusText}</span>
             </div>
-            <button class="btn-auth" onclick="signInWithGoogle()">
-              <i class="ti ti-brand-google"></i> Sign In with Google
-            </button>
+            <div id="google-signin-btn-container" style="display: flex; justify-content: center; width: 100%;"></div>
           </div>
         `;
+
+        if (googleClientId && window.google) {
+          google.accounts.id.renderButton(
+            document.getElementById("google-signin-btn-container"),
+            { theme: "dark", size: "medium", width: 270 }
+          );
+        }
       }
     }
 
-    async function signInWithGoogle() {
-      if (!isFirebaseActive) {
-        alert("Firebase keys are not configured yet. Insert your Firebase credentials at the top of the script tag to enable Google Auth & Sync.");
-        return;
-      }
-      const provider = new firebase.auth.GoogleAuthProvider();
-      try {
-        await auth.signInWithPopup(provider);
-      } catch (error) {
-        console.error("Sign-in failed:", error);
-        alert("Sign-in failed: " + error.message);
-      }
-    }
-
-    async function signOutWithGoogle() {
-      if (!isFirebaseActive) return;
-      try {
-        await auth.signOut();
-      } catch (error) {
-        console.error("Sign-out failed:", error);
-      }
-    }
-
-    async function syncProgressWithCloud(user) {
-      if (!isFirebaseActive || !user) return;
+    async function syncProgressWithCloud() {
+      if (!isSyncActive || !currentCredential) return;
       
-      updateProfileUI(user, "syncing");
-      const userRef = db.collection('users').doc(user.uid);
+      updateProfileUI(currentUser, "syncing");
 
       try {
-        const doc = await userRef.get();
-        let cloudCompleted = [];
-        if (doc.exists) {
-          const data = doc.data();
-          if (data && data.completed) {
-            cloudCompleted = data.completed;
-          }
+        const response = await fetch('/api/sync', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ credential: currentCredential })
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to load progress from serverless proxy");
         }
 
+        const data = await response.json();
+        const cloudCompleted = data.completedCards || [];
         const localCompleted = JSON.parse(localStorage.getItem('ai_roadmap_completed')) || [];
         const merged = Array.from(new Set([...localCompleted, ...cloudCompleted]));
         
         completedCards = merged;
         localStorage.setItem('ai_roadmap_completed', JSON.stringify(completedCards));
 
-        await userRef.set({
-          completed: completedCards,
-          lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
-        }, { merge: true });
+        if (localCompleted.length !== cloudCompleted.length || localCompleted.some(id => !cloudCompleted.includes(id))) {
+          await triggerCloudUpdate();
+        } else {
+          updateProfileUI(currentUser, "synced");
+        }
 
-        updateProfileUI(user, "synced");
         updateProgressStats();
         if (typeof updateProjectStats === 'function') {
           updateProjectStats();
         }
-        
-        // Re-render styles
+        renderPhaseNavLinks();
+
         roadmapData.forEach(card => {
           const cardEl = document.getElementById(`card-${card.id}`);
           const projEl = document.getElementById(`project-card-${card.id}`);
@@ -5385,19 +5409,29 @@ Instructions:
 
       } catch (error) {
         console.error("Cloud syncing failed:", error);
-        updateProfileUI(user, "error");
+        updateProfileUI(currentUser, "error");
       }
     }
 
     async function triggerCloudUpdate() {
-      if (isFirebaseActive && currentUser) {
+      if (isSyncActive && currentCredential && currentUser) {
         updateProfileUI(currentUser, "syncing");
-        const userRef = db.collection('users').doc(currentUser.uid);
         try {
-          await userRef.set({
-            completed: completedCards,
-            lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
-          }, { merge: true });
+          const response = await fetch('/api/sync', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              credential: currentCredential,
+              completedCards: completedCards
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error("Failed to save progress to serverless proxy");
+          }
+
           updateProfileUI(currentUser, "synced");
         } catch (error) {
           console.error("Cloud update failed:", error);
@@ -5457,8 +5491,8 @@ Instructions:
       // Initialize theme
       initTheme();
 
-      // Initialize Firebase Auth
-      initFirebase();
+      // Initialize Google Auth & Sync
+      initGoogleAuth();
 
       // Render cards
       renderAllCards();
